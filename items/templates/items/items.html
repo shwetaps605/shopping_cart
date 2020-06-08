@@ -1,0 +1,32 @@
+
+{% extends 'items/base.html' %}
+
+{% block main_content %}
+
+<div class="items-container">
+
+    <h3 class="welcome-message">Welcome User ! The available prodcuts are : </h3>
+
+    {% for item in items %}
+        <div class="item">
+            <span><a href= {% url 'details' item.id %} >{{ item.item_name }}</a></span>
+            <span style="float: right;font-size: 25px;color: white;" >Rs {{ item.price }}</span><br><br>
+            {% if item.quantity > 0 %}
+                <span style="font-size: 20px;">Available({{ item.quantity }})</span>
+            {% else %}
+                <span style="font-size: 20px;">Out of Stock</span>
+            {% endif %}
+        </div>
+        
+        
+    {% endfor %}
+
+
+</div>
+
+
+
+
+
+
+{% endblock %}

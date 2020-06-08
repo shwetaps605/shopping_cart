@@ -1,0 +1,15 @@
+{% extends 'items/base.html' %}
+
+{% block main_content %}
+
+
+<h1>Product bought:{{ item.item_name }}</h1>
+
+<form method='POST' action="">
+    {% csrf_token %}
+    <button type="submit">CHECKOUT</button>
+</form>
+
+
+
+{% endblock %}

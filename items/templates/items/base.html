@@ -1,0 +1,19 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset="UTF-8">
+    <title>Main page</title>
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+    
+</head>
+<body>
+    {% include 'items/header.html' %}
+    {% block main_content %}
+    {% endblock %}
+    {% include 'items/footer.html' %}
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+{% extends 'items/base.html' %}
+
+{% block main_content %}
+
+
+<div class="buy-item-container">
+
+
+    {% if selected_item.quantity > 0 %}
+
+        <h3>You are buying product: {{selected_item.item_name}}</h3>
+
+        {% if selected_item.discount_available == 0 %}
+            <p>No discounts available on this item !</p>
+        {% else %}
+            <p>Discounts:{{selected_item.discount_available}}%</p>
+
+            <form method="POST" action="">
+                {% csrf_token %}
+                <button type="submit">Avail Discount</button>
+            </form>
+
+        <p>Total Amount to be paid: {{selected_item.price}} </p>
+
+        {% endif %}
+
+        <a href="{% url 'checkout' selected_item.id %}">Confirm Order</a>
+
+    {% else %}
+
+    <h3>You cannot place order for this product </h3>
+
+    {% endif %}
+    <a href="{% url 'details' selected_item.id %}">Cancel</a>
+
+
+</div>
+
+
+
+{% endblock %}

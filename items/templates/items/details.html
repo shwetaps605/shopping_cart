@@ -1,0 +1,17 @@
+
+{% extends 'items/base.html' %}
+
+{% block main_content %}
+
+<div class="detailed-item-container">
+    <h3>Item name: {{selected_item.item_name }}</h3>
+    <p>Price: {{selected_item.price }}</p>
+    <p>In-Stock: {{selected_item.quantity}}</p>
+    <a href="{% url 'buy-portal' selected_item.id %}">Buy</a>
+    <a href="{% url 'home' %}">Back</a>
+</div>
+
+
+
+
+{% endblock %}
